@@ -7,13 +7,13 @@ cask "zen-safari" do
   desc "Zen mode for Safari: hides ads, promotions and cookie overlays with AI-reviewed rules"
   homepage "https://github.com/caius72/zen"
 
-  depends_on macos: ">= :tahoe"
+  depends_on macos: :tahoe
 
   app "Zen.app"
 
   # Launching the app once registers the Safari extension with macOS.
-  postflight do
-    system_command "/usr/bin/open", args: ["-a", "#{appdir}/Zen.app"]
+  postflight_steps do
+    run "/usr/bin/open", args: ["-a", "Zen"], must_succeed: false
   end
 
   uninstall quit: "com.tuschner.zen"
