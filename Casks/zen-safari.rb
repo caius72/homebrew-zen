@@ -1,6 +1,6 @@
 cask "zen-safari" do
   version "1.0.0"
-  sha256 "0cea9d5f821e646e47444ae0acef66425a1f8b795e4d909fb7e58e824329dd0a"
+  sha256 "fdc61391f27598e361917881e472d3deef434973973dec19576e20b17b795813"
 
   url "https://github.com/caius72/zen/releases/download/v#{version}/Zen-#{version}.zip"
   name "Zen"
