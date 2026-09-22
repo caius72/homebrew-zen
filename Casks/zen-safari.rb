@@ -4,17 +4,12 @@ cask "zen-safari" do
 
   url "https://github.com/caius72/zen/releases/download/v#{version}/Zen-#{version}.zip"
   name "Zen"
-  desc "Zen mode for Safari: hides ads, promotions and cookie overlays with AI-reviewed rules"
+  desc "Zen mode for Safari: hides ads, promotions and cookie overlays"
   homepage "https://github.com/caius72/zen"
 
   depends_on macos: :tahoe
 
   app "Zen.app"
-
-  # Launching the app once registers the Safari extension with macOS.
-  postflight_steps do
-    run "/usr/bin/open", args: ["-a", "Zen"], must_succeed: false
-  end
 
   uninstall quit: "com.tuschner.zen"
 
@@ -25,6 +20,7 @@ cask "zen-safari" do
 
   caveats <<~EOS
     Enable Zen in Safari > Settings > Extensions and allow it on every website.
+    If Zen is not listed there, open Zen.app once from /Applications.
     Then open the Zen popup, pick a provider under Connection and paste its API key.
   EOS
 end
